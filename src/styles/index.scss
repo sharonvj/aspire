@@ -1,0 +1,183 @@
+*{
+  font-family: "Open Sans", sans-serif;
+  font-weight: normal;
+}
+
+
+@mixin font-style($sizeValue: 16, $spacing: 0, $lineSpacing: 0) {
+  color: #ffffff;
+  letter-spacing: $spacing;
+  line-height: $lineSpacing;
+  font-size: $sizeValue + px;
+}
+
+@mixin icon-class($icon, $h: 24, $w: 24) {
+  .icon-#{$icon} {
+    &:before {
+      background-image: url(./../assets/#{$icon}.svg);
+      height: $h + px;
+      width: $w + px;
+    }
+  }
+}
+
+[class*="icon-"] {
+  position: relative;
+  display: inline-block;
+  &:before {
+    content: " ";
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@include icon-class(home);
+@include icon-class(visa, 20, 59);
+@include icon-class(card);
+@include icon-class(eye, 16, 16);
+@include icon-class(logo-debit, 21, 74);
+@include icon-class(payments);
+@include icon-class(credit);
+@include icon-class(account);
+@include icon-class(logo, 35, 125);
+@include icon-class(logo-sm, 25, 25.59);
+@include icon-class(add, 16, 16);
+@include icon-class(add-alt, 16, 16);
+@include icon-class(freezecard, 32, 32);
+@include icon-class(setspend, 32, 32);
+@include icon-class(gpay, 32, 32);
+@include icon-class(replacecard, 32, 32);
+@include icon-class(deactivecard, 32, 32);
+@include icon-class(sm-logo, 23.43, 23.99);
+@include icon-class(sm-pay, 18.08, 24);
+@include icon-class(sm-payments, 24, 24);
+@include icon-class(sm-credit, 24, 24);
+@include icon-class(sm-account, 24, 24);
+@include icon-class(down-arrow, 20, 20);
+@include icon-class(up-arrow, 20, 20);
+@include icon-class(card-det, 24, 24);
+@include icon-class(transaction, 24, 24);
+@include icon-class(file-storage, 15.2, 16);
+@include icon-class(business-and-finance, 7.86, 10);
+@include icon-class(next, 12, 6.5);
+
+.icon-down-arrow{
+   transform: rotate(180deg);
+}
+
+.leftpanelcontainer {
+  @media (min-width: 320px) and (max-width: 480px) {
+    display: none;
+  }
+  width:340px;
+  padding: 0px;
+  background: #0c365a;
+  .leftpanel {
+    padding-top: 48px;
+    width: 237px;
+    margin: auto;
+    .logo {
+      margin: 0px 0px 18px 0px;
+    }
+    .desc {
+      @include font-style(15, 0, 2);
+      margin: 0px 0px 80px 0px;
+      opacity: 30%;
+    }
+    .navbar-nav {
+      .nav-item {
+        display: flex;
+        width: inherit;
+        align-items: center;
+        margin: 30px 0px;
+        .nav-link {
+          display: inline;
+          padding: 0 16px;
+          @include font-style(16, 0, 3);
+          &.active {
+            color: #01d167;
+          }
+        }
+      }
+    }
+  }
+}
+.rightpanelcontainer {
+  background: #0c365a;
+  height: 606px;
+  @media (min-width: 1281px),
+    (min-width: 768px) and (max-width: 1024px),
+    (min-width: 481px) and (max-width: 767px),
+    (min-width: 768px) and (max-width: 1024px) and (orientation: landscape),
+    (min-width: 768px) and (max-width: 1024px),
+    (min-width: 1025px) and (max-width: 1280px) {
+    background: #ffffff;
+    width: calc(100% - 340px);
+  }
+  padding: 0px;
+  .rightpanel {
+    margin: 4%;
+    @media (min-width: 1281px),
+      (min-width: 768px) and (max-width: 1024px),
+      (min-width: 481px) and (max-width: 767px),
+      (min-width: 768px) and (max-width: 1024px) and (orientation: landscape),
+      (min-width: 768px) and (max-width: 1024px),
+      (min-width: 1025px) and (max-width: 1280px) {
+      margin: 60px;
+    }
+  }
+}
+.no-padding {
+  padding: 0px;
+}
+
+.hidden-slider {
+  width: 358px;
+  height: 200px;
+  background: #536dff;
+  opacity: 50%;
+  position: fixed;
+  top: 202px;
+  right: -342px;
+  border-radius: 12px;
+  z-index: 10001;
+  box-shadow:0px 2px 6px #00000014;
+}
+.sm-footer {
+  background: #ffffff;
+  height: 56px;
+  position: fixed;
+  bottom: 0px;
+  z-index: 10000;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .item {
+    a{
+     text-decoration: unset;
+    }
+    width: 82.8px;
+    text-align: center;
+    .text {
+      font-size: 9px;
+      color: #dddddd;
+      margin: auto;
+      &.active {
+        color: #01d167;
+      }
+    }
+  }
+}
+@media (min-width: 1281px),
+  (min-width: 768px) and (max-width: 1024px),
+  (min-width: 481px) and (max-width: 767px),
+  (min-width: 768px) and (max-width: 1024px) and (orientation: landscape),
+  (min-width: 768px) and (max-width: 1024px),
+  (min-width: 1025px) and (max-width: 1280px) {
+  .hidden-slider,.sm-footer {
+    display: none;
+  }
+}
